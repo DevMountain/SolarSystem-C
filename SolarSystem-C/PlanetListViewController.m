@@ -30,7 +30,8 @@
 }
 
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"planetCell" forIndexPath:indexPath];
     
 	Planet *planet = [PlanetController planets][indexPath.row];
@@ -45,7 +46,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-	if ([segue.identifier isEqualToString:@"toPlanetDetail"]) {
+	if ([segue.identifier isEqualToString:@"PlanetDetailSegue"]) {
 		PlanetDetailViewController *detailViewController = segue.destinationViewController;
 		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
 		Planet *planet = [PlanetController planets][indexPath.row];
